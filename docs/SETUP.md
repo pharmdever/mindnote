@@ -49,7 +49,8 @@ python scripts/configure-signing.py pharmdever/mindnote /path/to/mindnote-signin
 
 ## ดาวน์โหลด APK
 
-- Push ไป `main`: Actions → Android APK → Artifacts → APK (ถ้ายังไม่มี signing secrets จะเป็น development APK สำหรับทดลองเท่านั้น คีย์ debug ของแต่ละ runner อาจต่างกัน)
+- เมื่อมี signing secrets แล้ว การ push ไป `main` จะ build รุ่นเซ็นคีย์ ตรวจลายเซ็น และเผยแพร่ APK ใน Releases อัตโนมัติ ชื่อรุ่น `v0.1.<run_number>`
+- ถ้ายังไม่มี signing secrets จะสร้างเฉพาะ development APK ใน Actions → Artifacts สำหรับทดลองเท่านั้น คีย์ debug ของแต่ละ runner อาจต่างกัน
 - ตั้ง signing secrets ก่อน แล้วออกรุ่น:
 
 ```sh
@@ -78,3 +79,7 @@ gradle -p android assembleDebug
 แผนผังการรักษาเป็นการจัดระเบียบโน้ต ไม่ใช่ระบบตัดสินใจทางการแพทย์ ต้องตรวจเนื้อหาจากต้นฉบับและแหล่งอ้างอิง
 
 โครงการนี้ยังต้องทดสอบ APK บนอุปกรณ์ Android จริง รวมถึงคัดลอกข้อความ เลือกไฟล์ และบันทึกภาพ รุ่นแรกยังไม่ใช่ Google Play release
+
+## เปลี่ยนจาก APK ทดลองเป็นรุ่นเซ็นคีย์
+
+ถ้าติดตั้ง development APK เดิมอยู่ คีย์จะต่างจาก release ให้สำรองข้อมูล JSON ก่อน ถอนแอปรุ่นทดลอง แล้วติดตั้งรุ่นเซ็นคีย์และนำเข้าข้อมูลเพียงครั้งแรก หลังจากนั้นใช้คีย์ release เดิมและ versionCode ที่เพิ่มขึ้นในการอัปเดตทับรุ่น release ได้ตามปกติ
