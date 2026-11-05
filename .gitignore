@@ -1,0 +1,15 @@
+node_modules/
+.gradle/
+**/build/
+local.properties
+*.jks
+*.keystore
+*.p12
+*.pem
+.env
+.env.*
+secrets/
+*.apk
+*.aab
+__pycache__/
+*.pyc
