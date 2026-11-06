@@ -98,4 +98,4 @@ jobs:
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ github.ref_type == 'tag' && github.ref_name || format('v0.1.{0}', github.run_number) }}
           RELEASE_SHA: ${{ github.sha }}
-        run: gh release create "$RELEASE_TAG" artifacts/mindnote.apk artifacts/SHA256SUMS.txt artifacts/SIGNING-CERTIFICATE.txt --target "$RELEASE_SHA" --title "Mindnote $RELEASE_TAG" --generate-notes
+        run: gh release create "$RELEASE_TAG" artifacts/mindnote.apk artifacts/SHA256SUMS.txt artifacts/SIGNING-CERTIFICATE.txt --target "$RELEASE_SHA" --title "Mind Map $RELEASE_TAG" --generate-notes

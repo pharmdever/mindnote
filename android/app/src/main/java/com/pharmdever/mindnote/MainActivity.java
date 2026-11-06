@@ -69,6 +69,6 @@ public class MainActivity extends Activity {
    }).start();
   }
  }
- @Override public void onBackPressed(){new AlertDialog.Builder(this).setMessage("ออกจาก Mindnote? โปรดบันทึกผลงานก่อนออก").setPositiveButton("ออก",(d,w)->finish()).setNegativeButton("อยู่ต่อ",null).show();}
+ @Override public void onBackPressed(){new AlertDialog.Builder(this).setMessage("ออกจาก Mind Map? โปรดบันทึกผลงานก่อนออก").setPositiveButton("ออก",(d,w)->finish()).setNegativeButton("อยู่ต่อ",null).show();}
  @Override protected void onDestroy(){if(chooser!=null)chooser.onReceiveValue(null);web.destroy();super.onDestroy();}
 }
